@@ -3,432 +3,713 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>점성술 주얼리 시장 분석 인포그래픽</title>
+    <title>점성술 주얼리 시장 상세 분석 리포트</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Noto Sans KR', sans-serif;
-            background-color: #0f172a; /* Dark Slate */
-            color: #f8fafc;
+            background-color: #0b0f19; /* Deeper Dark */
+            color: #e2e8f0;
         }
         .serif-font {
             font-family: 'Playfair Display', serif;
         }
         .gradient-text {
-            background: linear-gradient(to right, #fbbf24, #d946ef);
+            background: linear-gradient(to right, #fbbf24, #f472b6, #a78bfa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(217, 70, 239, 0.3);
+        .card-glass {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
-        .glass-effect {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .section-title {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, #fbbf24, #d946ef);
+            border-radius: 4px;
+        }
+        .diagram-arrow {
+            position: relative;
+        }
+        .diagram-arrow::after {
+            content: '▼';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #64748b;
+        }
+        @media (min-width: 768px) {
+            .diagram-arrow-right::after {
+                content: '▶';
+                top: 50%;
+                right: -20px;
+                bottom: auto;
+                left: auto;
+                transform: translateY(-50%);
+            }
         }
     </style>
 </head>
-<body class="antialiased overflow-x-hidden">
+<body class="antialiased overflow-x-hidden selection:bg-purple-500 selection:text-white">
 
-    <!-- Header Section -->
-    <header class="relative w-full py-20 px-6 text-center overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
-            <div class="absolute top-10 left-10 w-32 h-32 bg-purple-500 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-10 right-10 w-64 h-64 bg-amber-400 rounded-full blur-3xl"></div>
-        </div>
-        
-        <div class="relative z-10 max-w-4xl mx-auto">
-            <span class="inline-block py-1 px-3 rounded-full bg-purple-900 text-purple-200 text-sm font-bold mb-4 border border-purple-500">Market Insight</span>
-            <h1 class="text-4xl md:text-6xl font-bold mb-4 serif-font">
-                한국 <span class="gradient-text">운세·점술 주얼리</span><br>시장 분석 리포트
+    <!-- Header -->
+    <header class="relative w-full py-24 px-6 text-center overflow-hidden bg-[url('https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=2094&auto=format&fit=crop')] bg-cover bg-center bg-no-repeat bg-fixed">
+        <div class="absolute inset-0 bg-slate-900/90"></div>
+        <div class="relative z-10 max-w-5xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-purple-500/50 bg-purple-900/30 text-purple-200 text-sm font-semibold mb-6 animate-pulse">
+                <span class="w-2 h-2 rounded-full bg-green-400"></span>
+                2025 Market Strategy Report
+            </div>
+            <h1 class="text-4xl md:text-7xl font-bold mb-6 serif-font tracking-tight text-white">
+                <span class="block text-2xl md:text-3xl font-normal mb-2 text-slate-300 font-sans">1.4조 원 운세 시장과 주얼리의 만남</span>
+                Astro-Jewelry <span class="gradient-text">Business Insight</span>
             </h1>
-            <p class="text-slate-300 text-lg md:text-xl mt-6 leading-relaxed">
-                1.4조 원 규모의 운세 시장과 성장하는 주얼리 시장의 결합.<br>
-                MZ세대의 '의미 소비' 트렌드를 잡는 새로운 비즈니스 기회
+            <p class="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                MZ세대의 '의미 소비' 트렌드를 겨냥한 점성술 주얼리 시장 분석,<br>
+                경쟁사 분석부터 <strong>제품 구조, 가격 정책, 마케팅 전략</strong>까지의 Full Roadmap.
             </p>
         </div>
     </header>
 
-    <!-- Section 0: Executive Summary -->
-    <section class="max-w-6xl mx-auto px-6 pb-16">
-        <div class="bg-slate-800 rounded-2xl p-8 border-l-4 border-amber-400 shadow-lg">
-            <h2 class="text-2xl font-bold mb-6 flex items-center text-amber-400">
-                <i class="fas fa-bolt mr-3"></i> 핵심 요약 (Executive Summary)
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="flex flex-col items-center text-center">
-                    <div class="w-16 h-16 bg-slate-700 rounded-full flex items-center justify-center mb-4 text-2xl text-amber-400">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="font-bold text-lg">고성장 시장</h3>
-                    <p class="text-slate-400 text-sm mt-2">한국 운세 시장 1.4조~4조원 규모<br>매년 두 자릿수 성장세</p>
-                </div>
-                <div class="flex flex-col items-center text-center">
-                    <div class="w-16 h-16 bg-slate-700 rounded-full flex items-center justify-center mb-4 text-2xl text-pink-400">
-                        <i class="fas fa-gem"></i>
-                    </div>
-                    <h3 class="font-bold text-lg">별자리 주얼리 급부상</h3>
-                    <p class="text-slate-400 text-sm mt-2">글로벌 시장 수조 원대 규모<br>2033년까지 연평균 9% 성장</p>
-                </div>
-                <div class="flex flex-col items-center text-center">
-                    <div class="w-16 h-16 bg-slate-700 rounded-full flex items-center justify-center mb-4 text-2xl text-purple-400">
-                        <i class="fas fa-bullseye"></i>
-                    </div>
-                    <h3 class="font-bold text-lg">전략적 기회</h3>
-                    <p class="text-slate-400 text-sm mt-2">"운세 경험 → 부적형 주얼리" 구매<br>2~8만원대 메인 타겟팅</p>
-                </div>
+    <!-- Navigation (Updated to include all 7 sections) -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 overflow-x-auto">
+            <div class="flex whitespace-nowrap md:justify-center space-x-6 py-4 text-sm font-medium text-slate-400">
+                <a href="#market" class="hover:text-amber-400 transition-colors">1. 시장</a>
+                <a href="#competitors" class="hover:text-amber-400 transition-colors">2. 경쟁사</a>
+                <a href="#consumer" class="hover:text-amber-400 transition-colors text-white">3. 소비자(NEW)</a>
+                <a href="#target" class="hover:text-amber-400 transition-colors">4. 타겟</a>
+                <a href="#product" class="hover:text-amber-400 transition-colors">5. 제품</a>
+                <a href="#pricing" class="hover:text-amber-400 transition-colors">6. 가격</a>
+                <a href="#marketing" class="hover:text-amber-400 transition-colors border-b-2 border-purple-500 pb-1 text-purple-200">7. 마케팅(NEW)</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 0. Summary Dashboard -->
+    <section class="max-w-7xl mx-auto px-6 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="col-span-1 md:col-span-4 mb-4">
+                <h2 class="text-sm font-bold text-slate-500 uppercase tracking-wider">0. Executive Summary</h2>
+            </div>
+            <!-- Stat 1 -->
+            <div class="card-glass p-6 rounded-2xl border-l-4 border-amber-500">
+                <div class="text-slate-400 text-sm mb-1">Domestic Market</div>
+                <div class="text-3xl font-bold text-white mb-2">1.4~4조<span class="text-lg font-normal text-slate-500">원</span></div>
+                <p class="text-xs text-slate-400">한국 운세/점술 시장 규모<br>(매년 두 자릿수 성장)</p>
+            </div>
+            <!-- Stat 2 -->
+            <div class="card-glass p-6 rounded-2xl border-l-4 border-purple-500">
+                <div class="text-slate-400 text-sm mb-1">Global Jewelry</div>
+                <div class="text-3xl font-bold text-white mb-2">9.2<span class="text-lg font-normal text-slate-500">%</span></div>
+                <p class="text-xs text-slate-400">별자리 주얼리 연평균 성장률<br>(2024~2033)</p>
+            </div>
+            <!-- Stat 3 -->
+            <div class="card-glass p-6 rounded-2xl border-l-4 border-pink-500">
+                <div class="text-slate-400 text-sm mb-1">Key Trend</div>
+                <div class="text-3xl font-bold text-white mb-2">Meaning</div>
+                <p class="text-xs text-slate-400">단순 패션이 아닌<br>"나만의 의미/스토리" 소비</p>
+            </div>
+            <!-- Stat 4 -->
+            <div class="card-glass p-6 rounded-2xl border-l-4 border-teal-500">
+                <div class="text-slate-400 text-sm mb-1">Opportunity</div>
+                <div class="text-3xl font-bold text-white mb-2">Digital+Goods</div>
+                <p class="text-xs text-slate-400">운세 앱 경험을<br>오프라인 굿즈로 연결</p>
             </div>
         </div>
     </section>
 
-    <!-- Section 1: Market Size -->
-    <section class="max-w-6xl mx-auto px-6 py-16">
-        <div class="flex flex-col md:flex-row items-end justify-between mb-10">
-            <div>
-                <h2 class="text-3xl font-bold text-white mb-2">01. 시장 환경 및 규모</h2>
-                <p class="text-slate-400">거대한 현금 흐름과 글로벌 트렌드의 일치</p>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <!-- Card 1: Domestic Market -->
-            <div class="glass-effect p-8 rounded-2xl relative overflow-hidden group card-hover transition-all duration-300">
-                <h3 class="text-xl font-bold text-slate-200 mb-6 border-b border-slate-600 pb-2">🇰🇷 한국 운세 시장</h3>
-                <div class="flex items-baseline mb-2">
-                    <span class="text-5xl font-black text-white">1.4</span>
-                    <span class="text-2xl font-bold text-slate-300 ml-1">조 원 ~ </span>
-                    <span class="text-5xl font-black text-white ml-2">4</span>
-                    <span class="text-2xl font-bold text-slate-300 ml-1">조 원</span>
-                </div>
-                <p class="text-amber-400 font-medium mb-6">추정 시장 규모 (온·오프라인 합산)</p>
-                
-                <div class="bg-slate-800/50 rounded-lg p-4">
-                    <div class="flex items-center mb-2">
-                        <i class="fas fa-users text-purple-400 mr-3"></i>
-                        <span class="text-sm">역술인/무속인 <strong>45~55만 명</strong></span>
+    <!-- 1. Market Size & Environment -->
+    <section id="market" class="max-w-7xl mx-auto px-6 py-16 border-t border-slate-800">
+        <h2 class="text-3xl font-bold text-white section-title serif-font">1. 시장 환경 및 규모 상세</h2>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <!-- Domestic -->
+            <div class="space-y-6">
+                <h3 class="text-xl font-bold text-amber-200 flex items-center"><span class="bg-amber-500/20 p-2 rounded mr-3">🇰🇷</span> 국내 운세 시장</h3>
+                <div class="relative pl-6 border-l border-slate-700 space-y-8">
+                    <div class="relative">
+                        <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-slate-800 border-2 border-amber-500"></span>
+                        <h4 class="font-bold text-lg text-white">규모의 경제</h4>
+                        <p class="text-slate-400 text-sm mt-1">
+                            혁신의숲/YTN 자료 종합 시 <strong>최소 1.4조 ~ 최대 4조 원</strong> 추산. <br>
+                            역술인 및 무속인 수만 <strong>45~55만 명</strong>에 달하는 거대 산업.
+                        </p>
                     </div>
-                    <div class="flex items-center mb-2">
-                        <i class="fas fa-mobile-alt text-purple-400 mr-3"></i>
-                        <span class="text-sm">운세 앱 '점신' <strong>1,500만 다운로드</strong></span>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fas fa-child text-purple-400 mr-3"></i>
-                        <span class="text-sm">MZ세대 <strong>놀이형 자기이해 도구</strong>로 정착</span>
+                    <div class="relative">
+                        <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-slate-800 border-2 border-amber-500"></span>
+                        <h4 class="font-bold text-lg text-white">MZ세대의 놀이터</h4>
+                        <p class="text-slate-400 text-sm mt-1">
+                            MBTI 처럼 <strong>'놀이형 자기이해 도구'</strong>로 정착.<br>
+                            네이버 엑스퍼트 인기 1,2위가 운세/타로 (MZ 비중 80%).<br>
+                            '점신' 앱 누적 다운로드 <strong>1,500만</strong> 돌파.
+                        </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Card 2: Global Market -->
-            <div class="glass-effect p-8 rounded-2xl relative overflow-hidden group card-hover transition-all duration-300">
-                <h3 class="text-xl font-bold text-slate-200 mb-6 border-b border-slate-600 pb-2">🌍 글로벌 주얼리/앱 시장</h3>
-                
-                <div class="space-y-6">
-                    <div>
-                        <div class="flex justify-between text-sm text-slate-300 mb-1">
-                            <span>Zodiac Jewelry (별자리 주얼리)</span>
-                            <span class="text-green-400">+9.2% 성장</span>
-                        </div>
-                        <div class="w-full bg-slate-700 rounded-full h-4">
-                            <div class="bg-gradient-to-r from-teal-400 to-blue-500 h-4 rounded-full" style="width: 70%"></div>
-                        </div>
-                        <div class="flex justify-between mt-1 text-xs text-slate-500">
-                            <span>2024: $2.1B</span>
-                            <span>2033: $4.7B (전망)</span>
-                        </div>
+            <!-- Global -->
+            <div class="space-y-6">
+                <h3 class="text-xl font-bold text-purple-200 flex items-center"><span class="bg-purple-500/20 p-2 rounded mr-3">🌍</span> 글로벌 트렌드</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-slate-800 p-5 rounded-xl">
+                        <div class="text-xs text-slate-400 mb-2">Zodiac Jewelry Market</div>
+                        <div class="text-2xl font-bold text-white">CAGR 9.2%</div>
+                        <p class="text-xs text-slate-500 mt-2">2024년 21억 달러 → 2033년 47억 달러 전망</p>
                     </div>
-
-                    <div>
-                        <div class="flex justify-between text-sm text-slate-300 mb-1">
-                            <span>Spiritual Jewelry (영성 주얼리)</span>
-                            <span class="text-green-400">+6.8% 성장</span>
-                        </div>
-                        <div class="w-full bg-slate-700 rounded-full h-4">
-                            <div class="bg-gradient-to-r from-purple-400 to-pink-500 h-4 rounded-full" style="width: 60%"></div>
-                        </div>
-                        <div class="flex justify-between mt-1 text-xs text-slate-500">
-                            <span>2024: $14.7B</span>
-                            <span>2029: $20.4B (전망)</span>
-                        </div>
+                    <div class="bg-slate-800 p-5 rounded-xl">
+                        <div class="text-xs text-slate-400 mb-2">Astrology App Market</div>
+                        <div class="text-2xl font-bold text-white">CAGR 24%</div>
+                        <p class="text-xs text-slate-500 mt-2">디지털 점성술 경험의 폭발적 성장</p>
+                    </div>
+                    <div class="col-span-1 sm:col-span-2 bg-slate-800 p-5 rounded-xl">
+                        <div class="text-xs text-slate-400 mb-2">Insight</div>
+                        <p class="text-sm text-slate-200">
+                            "디지털 운세 경험 + 스피리추얼 주얼리"는 <br>
+                            이미 글로벌 시장에서 <strong>검증된 수익 모델</strong>.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 2: Competitors -->
-    <section class="bg-slate-900/50 py-16 border-y border-slate-800">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-white mb-10">02. 경쟁사 포지셔닝 분석</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Competitor 1 -->
-                <div class="bg-slate-800 rounded-xl overflow-hidden shadow-lg border border-purple-900">
-                    <div class="bg-purple-900/40 p-4 flex justify-between items-center">
-                        <h3 class="font-bold text-xl text-purple-200">크리스탈 환타지</h3>
-                        <span class="text-xs bg-purple-800 text-white px-2 py-1 rounded">원석 커뮤니티형</span>
-                    </div>
-                    <div class="p-6">
-                        <ul class="space-y-3 text-sm text-slate-300">
-                            <li class="flex items-start"><i class="fas fa-check text-purple-500 mt-1 mr-2"></i> <span><strong>슬로건:</strong> 원석을 사랑하는 분들의 놀이터</span></li>
-                            <li class="flex items-start"><i class="fas fa-check text-purple-500 mt-1 mr-2"></i> <span><strong>특징:</strong> 힐링, 명상, 차크라 등 광범위한 영성 스토리</span></li>
-                            <li class="flex items-start"><i class="fas fa-check text-purple-500 mt-1 mr-2"></i> <span><strong>가격:</strong> 2~3만 원대 입문형 탄생석 목걸이 주력</span></li>
-                            <li class="flex items-start"><i class="fas fa-check text-purple-500 mt-1 mr-2"></i> <span><strong>전략:</strong> 니즈(불면증 등) → 원석 추천의 자연스러운 흐름</span></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Competitor 2 -->
-                <div class="bg-slate-800 rounded-xl overflow-hidden shadow-lg border border-amber-900">
-                    <div class="bg-amber-900/30 p-4 flex justify-between items-center">
-                        <h3 class="font-bold text-xl text-amber-200">젬팜 (Gem Farm)</h3>
-                        <span class="text-xs bg-amber-800 text-white px-2 py-1 rounded">사주/오행 맞춤형</span>
-                    </div>
-                    <div class="p-6">
-                        <ul class="space-y-3 text-sm text-slate-300">
-                            <li class="flex items-start"><i class="fas fa-check text-amber-500 mt-1 mr-2"></i> <span><strong>메시지:</strong> 사주 명리학 기반 나에게 맞는 컬러 추천</span></li>
-                            <li class="flex items-start"><i class="fas fa-check text-amber-500 mt-1 mr-2"></i> <span><strong>특징:</strong> 고급 등급 파워스톤(염주형) 강조</span></li>
-                            <li class="flex items-start"><i class="fas fa-check text-amber-500 mt-1 mr-2"></i> <span><strong>컨텐츠:</strong> 운세 서비스와 연계된 소셜 영상 활용</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mt-8 text-center">
-                <span class="inline-block bg-slate-700 text-slate-300 px-4 py-2 rounded-full text-sm">
-                    👉 <strong>Insight:</strong> 기존 업체들은 "원석 수집" 혹은 "염주" 느낌이 강함. <span class="text-white font-bold">현대적 디자인 + 점성술 스토리</span>의 결합이 틈새시장!
-                </span>
-            </div>
+    <!-- 2. Competitors -->
+    <section id="competitors" class="max-w-7xl mx-auto px-6 py-16 bg-slate-900/50">
+        <h2 class="text-3xl font-bold text-white section-title serif-font">2. 경쟁사 심층 분석</h2>
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="border-b border-slate-700 text-slate-400 text-sm">
+                        <th class="py-4 px-4 w-1/4">구분</th>
+                        <th class="py-4 px-4 w-1/3 text-purple-300">크리스탈 환타지 (Market Leader)</th>
+                        <th class="py-4 px-4 w-1/3 text-amber-300">젬팜/크리스탈코리아 (Follower)</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm text-slate-300">
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/50 transition">
+                        <td class="py-4 px-4 font-bold text-slate-200">브랜드 포지션</td>
+                        <td class="py-4 px-4">"원석 마니아들의 놀이터"<br>커뮤니티 + 쇼핑몰 결합 형태</td>
+                        <td class="py-4 px-4">"사주 기반 맞춤 추천"<br>기능성 파워스톤/염주 강조</td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/50 transition">
+                        <td class="py-4 px-4 font-bold text-slate-200">핵심 상품군</td>
+                        <td class="py-4 px-4">
+                            <ul class="list-disc pl-4 space-y-1">
+                                <li>힐링/명상/차크라/카발라 등 광범위</li>
+                                <li>형태: 팔찌, 펜듈럼, 원석 구, 피라미드</li>
+                            </ul>
+                        </td>
+                        <td class="py-4 px-4">
+                            <ul class="list-disc pl-4 space-y-1">
+                                <li>사주 오행 컬러 원석 팔찌 (염주형)</li>
+                                <li>고급 등급(4A) 원석 포인트</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/50 transition">
+                        <td class="py-4 px-4 font-bold text-slate-200">가격대 전략</td>
+                        <td class="py-4 px-4">
+                            <span class="text-green-400 font-bold">2~3만 원대</span> 입문형 주력<br>
+                            (탄생석 목걸이 2만원, 펜던트 1.7만원)
+                        </td>
+                        <td class="py-4 px-4">
+                            스펙트럼이 넓음 (1.4만 ~ 7만원)<br>
+                            은(Silver) 셋팅 제품으로 단가 상승 유도
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="py-4 px-4 font-bold text-slate-200">전략적 시사점</td>
+                        <td class="py-4 px-4 bg-purple-900/20 border-l-2 border-purple-500">
+                            "니즈(불면증) → 원석 추천" 흐름이 자연스러움.<br>다양한 스피리추얼 카테고리 보유.
+                        </td>
+                        <td class="py-4 px-4 bg-amber-900/20 border-l-2 border-amber-500">
+                            "사주 오행"이라는 명확한 로직 사용.<br>콘텐츠(영상)를 통한 유입 전략.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </section>
 
-    <!-- Section 3: Target Audience -->
-    <section class="max-w-6xl mx-auto px-6 py-16">
-        <h2 class="text-3xl font-bold text-white mb-10">03. 타겟 고객 세분화 (Target Persona)</h2>
+    <!-- 3. Consumer Insight (Newly Added to Restore Original Structure) -->
+    <section id="consumer" class="max-w-7xl mx-auto px-6 py-16 border-t border-slate-800">
+        <h2 class="text-3xl font-bold text-white section-title serif-font">3. 소비자 인식 & 구매 의도</h2>
+        <p class="text-slate-400 mb-10">디지털 운세 경험이 어떻게 오프라인 구매(주얼리)로 연결되는가?</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- 3-1. Interest -->
+            <div class="card-glass p-8 rounded-xl relative overflow-hidden group">
+                <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl text-amber-500 group-hover:scale-110 transition"><i class="fas fa-brain"></i></div>
+                <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                    <span class="w-8 h-8 rounded bg-amber-500/20 text-amber-400 flex items-center justify-center mr-3 text-sm">3-1</span>
+                    운세·점성술에 대한 관심
+                </h3>
+                <ul class="space-y-4 text-slate-300">
+                    <li class="flex items-start">
+                        <i class="fas fa-quote-left text-slate-500 mt-1 mr-3 text-xs"></i>
+                        <span>
+                            <strong class="text-amber-200">불안 해소 & 카운슬링:</strong><br>
+                            진로, 연애 등 불확실한 미래에 대한 조언과 위로의 수단 (가벼운 상담 대체).
+                        </span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-mobile-alt text-slate-500 mt-1 mr-3 text-xs"></i>
+                        <span>
+                            <strong class="text-amber-200">놀이형 콘텐츠화:</strong><br>
+                            점신 등 운세 앱(1,500만 다운로드)을 통해 매일 소비하는 "재미 콘텐츠"로 정착.
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 3-2. Meaning & Jewelry -->
+            <div class="card-glass p-8 rounded-xl relative overflow-hidden group">
+                <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl text-pink-500 group-hover:scale-110 transition"><i class="fas fa-heart"></i></div>
+                <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                    <span class="w-8 h-8 rounded bg-pink-500/20 text-pink-400 flex items-center justify-center mr-3 text-sm">3-2</span>
+                    주얼리와 '나만의 의미'
+                </h3>
+                <ul class="space-y-4 text-slate-300">
+                    <li class="flex items-start">
+                        <i class="fas fa-fingerprint text-slate-500 mt-1 mr-3 text-xs"></i>
+                        <span>
+                            <strong class="text-pink-200">퍼스널라이즈드(Personalized):</strong><br>
+                            이름 각인, 생일별 탄생석 등 "자신의 이야기"를 담는 제품 선호.
+                        </span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-comments-dollar text-slate-500 mt-1 mr-3 text-xs"></i>
+                        <span>
+                            <strong class="text-pink-200">지불 의사(Willingness to Pay):</strong><br>
+                            단순 악세서리가 아니라 의미가 부여될 때 7~10만 원대까지 가격 저항선이 완화됨.
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="mt-8 bg-slate-800/50 p-4 rounded-lg text-center border border-slate-700">
+            <span class="text-purple-400 font-bold">Key Takeaway:</span> 
+            <span class="text-slate-300 ml-2">"운세 앱의 조언(콘텐츠)"을 "오래 지닐 수 있는 물건(주얼리)"으로 치환하려는 니즈가 존재함.</span>
+        </div>
+    </section>
+
+    <!-- 4. Target Personas (Number Updated) -->
+    <section id="target" class="max-w-7xl mx-auto px-6 py-16 bg-slate-900/50">
+        <h2 class="text-3xl font-bold text-white section-title serif-font">4. 타겟 고객 세분화 (Persona)</h2>
+        <p class="text-slate-400 mb-10">브랜드는 A/B를 핵심으로, C/D를 확장 타겟으로 설정 권장</p>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <!-- Persona A -->
-            <div class="bg-slate-800 p-6 rounded-xl border-t-4 border-slate-400 hover:bg-slate-750 transition">
-                <div class="text-3xl mb-4 text-slate-400"><i class="far fa-smile"></i></div>
-                <h3 class="font-bold text-lg mb-2">A. 데일리 미니멀 MZ</h3>
-                <p class="text-xs text-slate-500 mb-4">20~34세 직장인/학생</p>
-                <p class="text-sm text-slate-300">"매일 낄 수 있는 심플한 의미"</p>
-                <div class="mt-4 pt-4 border-t border-slate-700 text-xs text-purple-300">
-                    추천: 별자리 실버 목걸이
+            <div class="bg-slate-800 rounded-xl p-6 hover:-translate-y-2 transition-transform duration-300 border-t-4 border-slate-400">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="font-bold text-lg text-white">A. 데일리 미니멀</h3>
+                    <i class="fas fa-mobile-alt text-2xl text-slate-500"></i>
                 </div>
+                <div class="text-xs font-bold text-slate-500 mb-4">20~34세 직장인/학생</div>
+                <ul class="text-sm text-slate-300 space-y-2">
+                    <li><span class="text-slate-500">Need:</span> 매일 낄 수 있는 심플함</li>
+                    <li><span class="text-slate-500">Mood:</span> 튀지 않는 "은은한 의미"</li>
+                    <li><span class="text-amber-400 font-bold">Product:</span> 별자리 실버 목걸이</li>
+                </ul>
             </div>
-
-            <!-- Persona B -->
-            <div class="bg-slate-800 p-6 rounded-xl border-t-4 border-blue-500 hover:bg-slate-750 transition">
-                <div class="text-3xl mb-4 text-blue-500"><i class="fas fa-shield-alt"></i></div>
-                <h3 class="font-bold text-lg mb-2">B. 불안 해소 러버</h3>
-                <p class="text-xs text-slate-500 mb-4">취준/이직/변화기</p>
-                <p class="text-sm text-slate-300">"불안을 잠재우는 부적"</p>
-                <div class="mt-4 pt-4 border-t border-slate-700 text-xs text-purple-300">
-                    추천: 커리어/재물운 팔찌
+             <!-- Persona B -->
+             <div class="bg-slate-800 rounded-xl p-6 hover:-translate-y-2 transition-transform duration-300 border-t-4 border-amber-500">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="font-bold text-lg text-white">B. 불안 해소 러버</h3>
+                    <i class="fas fa-shield-halved text-2xl text-amber-500"></i>
                 </div>
+                <div class="text-xs font-bold text-slate-500 mb-4">20~39세 변화기(취준/이직)</div>
+                <ul class="text-sm text-slate-300 space-y-2">
+                    <li><span class="text-slate-500">Need:</span> 불안 감소, 행운 기원</li>
+                    <li><span class="text-slate-500">Mood:</span> "부적" 같은 의지 대상</li>
+                    <li><span class="text-amber-400 font-bold">Product:</span> 재물/커리어 원석 팔찌</li>
+                </ul>
             </div>
-
-            <!-- Persona C -->
-            <div class="bg-slate-800 p-6 rounded-xl border-t-4 border-purple-500 hover:bg-slate-750 transition">
-                <div class="text-3xl mb-4 text-purple-500"><i class="fas fa-spa"></i></div>
-                <h3 class="font-bold text-lg mb-2">C. 영성 얼리어답터</h3>
-                <p class="text-xs text-slate-500 mb-4">요가/명상/힐링 관심</p>
-                <p class="text-sm text-slate-300">"차크라, 에너지 상징"</p>
-                <div class="mt-4 pt-4 border-t border-slate-700 text-xs text-purple-300">
-                    추천: 차크라 원석, 핸드스톤
+             <!-- Persona C -->
+             <div class="bg-slate-800 rounded-xl p-6 hover:-translate-y-2 transition-transform duration-300 border-t-4 border-purple-500">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="font-bold text-lg text-white">C. 영성 탐구자</h3>
+                    <i class="fas fa-om text-2xl text-purple-500"></i>
                 </div>
+                <div class="text-xs font-bold text-slate-500 mb-4">25~45세 요가/명상족</div>
+                <ul class="text-sm text-slate-300 space-y-2">
+                    <li><span class="text-slate-500">Need:</span> 차크라 밸런스, 에너지</li>
+                    <li><span class="text-slate-500">Mood:</span> 상징성 강한 디자인</li>
+                    <li><span class="text-amber-400 font-bold">Product:</span> 7차크라 스톤, 핸드스톤</li>
+                </ul>
             </div>
-
-            <!-- Persona D -->
-            <div class="bg-slate-800 p-6 rounded-xl border-t-4 border-pink-500 hover:bg-slate-750 transition">
-                <div class="text-3xl mb-4 text-pink-500"><i class="fas fa-gift"></i></div>
-                <h3 class="font-bold text-lg mb-2">D. 선물 수요</h3>
-                <p class="text-xs text-slate-500 mb-4">기념일, 친구 선물</p>
-                <p class="text-sm text-slate-300">"특별한 스토리가 있는 선물"</p>
-                <div class="mt-4 pt-4 border-t border-slate-700 text-xs text-purple-300">
-                    추천: 탄생석 + 운세 리포트 박스
+             <!-- Persona D -->
+             <div class="bg-slate-800 rounded-xl p-6 hover:-translate-y-2 transition-transform duration-300 border-t-4 border-pink-500">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="font-bold text-lg text-white">D. 기프트 쇼퍼</h3>
+                    <i class="fas fa-gift text-2xl text-pink-500"></i>
                 </div>
+                <div class="text-xs font-bold text-slate-500 mb-4">전 연령대 (기념일)</div>
+                <ul class="text-sm text-slate-300 space-y-2">
+                    <li><span class="text-slate-500">Need:</span> 특별하고 의미 있는 선물</li>
+                    <li><span class="text-slate-500">Mood:</span> 패키징, 스토리텔링 중요</li>
+                    <li><span class="text-amber-400 font-bold">Product:</span> 탄생석 박스 세트</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- Section 4: Product & Pricing -->
-    <section class="max-w-6xl mx-auto px-6 py-16">
-        <h2 class="text-3xl font-bold text-white mb-4">04. 카테고리 & 가격 정책</h2>
-        <p class="text-slate-400 mb-10">점성술 로직(의미) × 라이프 니즈(목적) × 주얼리(형태)의 결합</p>
+    <!-- 5. Product Category (Number Updated) -->
+    <section id="product" class="max-w-7xl mx-auto px-6 py-16 border-t border-slate-800 bg-slate-900/30">
+        <h2 class="text-3xl font-bold text-white section-title serif-font">5. 제품 카테고리 구조화 (The Framework)</h2>
+        <p class="text-slate-400 mb-10">
+            경쟁사 분석과 시장 트렌드를 반영하여 <strong>3가지 축(Axis)</strong>을 교차시킨 입체적 제품 라인업을 설계합니다.
+        </p>
 
-        <!-- 3-Axis Visualization -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16 text-center">
-            <div class="bg-gradient-to-br from-slate-800 to-slate-900 p-6 rounded-lg border border-slate-700">
-                <div class="text-amber-400 font-bold mb-2">Logic (의미)</div>
-                <div class="text-sm text-slate-300 space-y-1">
-                    <p>서양 점성술 (별자리)</p>
-                    <p>동양 사주 (오행/띠)</p>
-                    <p>행성/차크라 심볼</p>
+        <!-- The Framework Diagram -->
+        <div class="grid grid-cols-1 md:grid-cols-7 gap-4 items-stretch mb-16">
+            
+            <!-- Axis 1: Logic -->
+            <div class="md:col-span-2 bg-slate-800 rounded-xl p-6 border border-slate-700 relative diagram-arrow-right">
+                <div class="absolute -top-3 left-6 bg-slate-600 px-3 py-1 text-xs text-white rounded font-bold">축 1. Logic (점성술 원리)</div>
+                <div class="space-y-4 mt-2">
+                    <div class="bg-slate-700/50 p-3 rounded flex items-center">
+                        <span class="w-8 h-8 flex items-center justify-center bg-amber-500/20 text-amber-500 rounded-full mr-3"><i class="fas fa-star"></i></span>
+                        <div>
+                            <div class="font-bold text-white text-sm">서양 점성술</div>
+                            <div class="text-xs text-slate-400">12별자리, 태양/달/상승궁</div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-700/50 p-3 rounded flex items-center">
+                        <span class="w-8 h-8 flex items-center justify-center bg-red-500/20 text-red-500 rounded-full mr-3"><i class="fas fa-fire"></i></span>
+                        <div>
+                            <div class="font-bold text-white text-sm">동양 사주</div>
+                            <div class="text-xs text-slate-400">오행(목화토금수), 띠</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="flex items-center justify-center md:hidden text-slate-500"><i class="fas fa-times"></i></div>
-            <div class="bg-gradient-to-br from-slate-800 to-slate-900 p-6 rounded-lg border border-slate-700">
-                <div class="text-pink-400 font-bold mb-2">Purpose (목적)</div>
-                <div class="text-sm text-slate-300 space-y-1">
-                    <p>연애/관계운</p>
-                    <p>커리어/금전운</p>
-                    <p>멘탈 케어/프로텍션</p>
+
+            <!-- Operator -->
+            <div class="hidden md:flex md:col-span-1 items-center justify-center text-4xl text-slate-600 font-black">×</div>
+
+            <!-- Axis 2: Purpose -->
+            <div class="md:col-span-2 bg-slate-800 rounded-xl p-6 border border-slate-700 relative diagram-arrow-right">
+                <div class="absolute -top-3 left-6 bg-slate-600 px-3 py-1 text-xs text-white rounded font-bold">축 2. Purpose (목적/니즈)</div>
+                <div class="grid grid-cols-1 gap-3 mt-2">
+                    <div class="text-sm text-slate-300 bg-slate-700/30 p-2 rounded border border-slate-600/50">❤️ 연애/관계운</div>
+                    <div class="text-sm text-slate-300 bg-slate-700/30 p-2 rounded border border-slate-600/50">💰 커리어/재물운</div>
+                    <div class="text-sm text-slate-300 bg-slate-700/30 p-2 rounded border border-slate-600/50">🌿 멘탈케어/숙면</div>
                 </div>
             </div>
-            <div class="flex items-center justify-center md:hidden text-slate-500"><i class="fas fa-times"></i></div>
-            <div class="bg-gradient-to-br from-slate-800 to-slate-900 p-6 rounded-lg border border-slate-700">
-                <div class="text-teal-400 font-bold mb-2">Form (형태)</div>
-                <div class="text-sm text-slate-300 space-y-1">
-                    <p>데일리 주얼리 (목걸이/반지)</p>
-                    <p>부적형 (팔찌/키링)</p>
-                    <p>오브제 (원석/트레이)</p>
-                </div>
+
+            <!-- Operator -->
+            <div class="hidden md:flex md:col-span-1 items-center justify-center text-4xl text-slate-600 font-black">×</div>
+
+            <!-- Axis 3: Form -->
+            <div class="md:col-span-1 bg-slate-800 rounded-xl p-6 border border-slate-700 relative">
+                <div class="absolute -top-3 left-6 bg-slate-600 px-3 py-1 text-xs text-white rounded font-bold">축 3. Form</div>
+                <ul class="text-sm text-slate-300 space-y-4 mt-2 list-disc pl-4 marker:text-amber-500">
+                    <li>목걸이</li>
+                    <li>팔찌/뱅글</li>
+                    <li>반지</li>
+                    <li>오브제/원석</li>
+                </ul>
             </div>
         </div>
 
-        <!-- Pricing Tables -->
+        <!-- Resulting Collections -->
+        <h3 class="text-xl font-bold text-white mb-6 pl-4 border-l-4 border-teal-500">🚀 추천 라인업 (Resulting Collections)</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Col 1 -->
+            <div class="card-glass p-5 rounded-xl hover:bg-slate-800 transition group">
+                <div class="h-10 w-10 bg-amber-500 rounded-lg flex items-center justify-center text-white mb-4 group-hover:scale-110 transition">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <h4 class="font-bold text-lg text-white mb-2">Signature Line</h4>
+                <p class="text-xs text-amber-400 font-bold mb-2">My Zodiac & Element</p>
+                <p class="text-sm text-slate-400 leading-snug">
+                    "태양 사자자리 + 오행 火" 처럼 별자리와 사주 오행을 동시 반영한 듀얼 토큰 목걸이/팔찌.
+                </p>
+            </div>
+            <!-- Col 2 -->
+            <div class="card-glass p-5 rounded-xl hover:bg-slate-800 transition group">
+                <div class="h-10 w-10 bg-blue-500 rounded-lg flex items-center justify-center text-white mb-4 group-hover:scale-110 transition">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h4 class="font-bold text-lg text-white mb-2">Success Line</h4>
+                <p class="text-xs text-blue-400 font-bold mb-2">Career & Wealth</p>
+                <p class="text-sm text-slate-400 leading-snug">
+                    타로(펜타클)나 목성(행운) 심볼을 활용한 반지/팔찌. 취업, 승진, 사업운 타겟.
+                </p>
+            </div>
+            <!-- Col 3 -->
+            <div class="card-glass p-5 rounded-xl hover:bg-slate-800 transition group">
+                <div class="h-10 w-10 bg-green-500 rounded-lg flex items-center justify-center text-white mb-4 group-hover:scale-110 transition">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h4 class="font-bold text-lg text-white mb-2">Healing Line</h4>
+                <p class="text-xs text-green-400 font-bold mb-2">Calm & Shield</p>
+                <p class="text-sm text-slate-400 leading-snug">
+                    블랙 투르말린(차단), 문스톤(정서안정) 등 기능성 원석 위주의 보호/힐링 아이템.
+                </p>
+            </div>
+            <!-- Col 4 -->
+            <div class="card-glass p-5 rounded-xl hover:bg-slate-800 transition group">
+                <div class="h-10 w-10 bg-pink-500 rounded-lg flex items-center justify-center text-white mb-4 group-hover:scale-110 transition">
+                    <i class="fas fa-box-open"></i>
+                </div>
+                <h4 class="font-bold text-lg text-white mb-2">Gift Line</h4>
+                <p class="text-xs text-pink-400 font-bold mb-2">Birthday & Story</p>
+                <p class="text-sm text-slate-400 leading-snug">
+                    주얼리 + 메시지 카드 + <span class="text-white underline">맞춤 운세 리포트(PDF)</span>가 포함된 올인원 박스.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Pricing Strategy (Number Updated) -->
+    <section id="pricing" class="max-w-7xl mx-auto px-6 py-16">
+        <h2 class="text-3xl font-bold text-white section-title serif-font">6. 가격 정책 (Pricing Pyramid)</h2>
+        <p class="text-slate-400 mb-10">
+            시장 벤치마킹(원석 1~3만원, 실버 브랜드 7~10만원)을 고려한 3단계 가격 구조 제안.
+        </p>
+
         <div class="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-8 items-end">
-            <!-- Entry -->
-            <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700 opacity-80 transform scale-95">
-                <h3 class="text-lg font-bold text-slate-300">ENTRY Line</h3>
-                <p class="text-xs text-slate-500 mb-4">라이트 유저 / 20대 초반</p>
-                <div class="text-2xl font-bold text-white mb-4">1.9 ~ 3.9 <span class="text-sm font-normal">만원</span></div>
-                <ul class="text-sm text-slate-400 space-y-2 mb-6">
-                    <li>• 비즈 팔찌</li>
-                    <li>• 실버 미니 펜던트</li>
-                    <li>• "부담 없는 뷰티 소품"</li>
-                </ul>
+            <!-- ENTRY -->
+            <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 relative">
+                <div class="text-center mb-6">
+                    <span class="bg-slate-700 text-slate-300 text-xs px-3 py-1 rounded-full uppercase font-bold">Entry Line</span>
+                    <h3 class="text-2xl font-bold text-white mt-4">₩ 19,000 ~ 39,000</h3>
+                    <p class="text-slate-500 text-xs mt-2">"배달앱 한 번 줄이면 살 수 있는 가격"</p>
+                </div>
+                <div class="space-y-4 border-t border-slate-700 pt-6">
+                    <div class="flex items-start">
+                        <i class="fas fa-check text-slate-500 mt-1 mr-3"></i>
+                        <div>
+                            <p class="text-sm text-white font-bold">Target</p>
+                            <p class="text-xs text-slate-400">1020세대, 라이트 유저</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-gem text-slate-500 mt-1 mr-3"></i>
+                        <div>
+                            <p class="text-sm text-white font-bold">Product</p>
+                            <p class="text-xs text-slate-400">심플 비즈 팔찌, 실버 미니 펜던트</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Core -->
-            <div class="bg-gradient-to-b from-purple-900 to-slate-900 rounded-2xl p-8 border-2 border-purple-500 shadow-2xl transform scale-105 z-10 relative">
-                <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-bold">BEST</div>
-                <h3 class="text-xl font-bold text-white">CORE Line</h3>
-                <p class="text-xs text-purple-200 mb-4">2030 여성 / 의미+디자인</p>
-                <div class="text-3xl font-bold text-amber-400 mb-4">3.9 ~ 7.9 <span class="text-sm font-normal text-slate-300">만원</span></div>
-                <ul class="text-sm text-slate-300 space-y-3 mb-6">
-                    <li class="flex items-center"><i class="fas fa-star text-xs text-amber-400 mr-2"></i> 별자리 + 오행 컬러 목걸이</li>
-                    <li class="flex items-center"><i class="fas fa-star text-xs text-amber-400 mr-2"></i> 커리어/재물운 테마 팔찌</li>
-                    <li class="flex items-center"><i class="fas fa-star text-xs text-amber-400 mr-2"></i> 선물용 패키징 강화</li>
-                </ul>
+            <!-- CORE (Highlighted) -->
+            <div class="bg-gradient-to-b from-slate-800 to-slate-900 border-2 border-amber-500 rounded-2xl p-8 shadow-2xl relative transform scale-105 z-10">
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-amber-500 text-black font-bold px-4 py-1 rounded-full text-sm shadow-lg">
+                    MAIN TARGET
+                </div>
+                <div class="text-center mb-6">
+                    <span class="bg-amber-500/20 text-amber-500 text-xs px-3 py-1 rounded-full uppercase font-bold">Core Line</span>
+                    <h3 class="text-3xl font-bold text-white mt-4">₩ 49,000 ~ 79,000</h3>
+                    <p class="text-amber-200/60 text-xs mt-2">"디자인과 의미를 모두 잡은 가심비"</p>
+                </div>
+                <div class="space-y-5 border-t border-slate-700 pt-6">
+                    <div class="flex items-start">
+                        <i class="fas fa-check text-amber-500 mt-1 mr-3"></i>
+                        <div>
+                            <p class="text-sm text-white font-bold">Target</p>
+                            <p class="text-xs text-slate-400">2030 직장인 여성, 선물 수요</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-gem text-amber-500 mt-1 mr-3"></i>
+                        <div>
+                            <p class="text-sm text-white font-bold">Product</p>
+                            <p class="text-xs text-slate-400">별자리+오행 목걸이, 커리어 팔찌 세트</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-bolt text-amber-500 mt-1 mr-3"></i>
+                        <div>
+                            <p class="text-sm text-white font-bold">Benchmark</p>
+                            <p class="text-xs text-slate-400">해외 별자리 에나멜 목걸이($67)와 유사</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Premium -->
-            <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700 opacity-80 transform scale-95">
-                <h3 class="text-lg font-bold text-slate-300">PREMIUM Line</h3>
-                <p class="text-xs text-slate-500 mb-4">마니아 / 고소득층</p>
-                <div class="text-2xl font-bold text-white mb-4">9.9 ~ 20+ <span class="text-sm font-normal">만원</span></div>
-                <ul class="text-sm text-slate-400 space-y-2 mb-6">
-                    <li>• 희귀 원석 (몰다바이트 등)</li>
-                    <li>• 1:1 운세 리포트 + 풀세트</li>
-                    <li>• 고급 실버/골드 셋팅</li>
-                </ul>
+            <!-- PREMIUM -->
+            <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 relative">
+                <div class="text-center mb-6">
+                    <span class="bg-purple-900/50 text-purple-300 text-xs px-3 py-1 rounded-full uppercase font-bold">Premium Line</span>
+                    <h3 class="text-2xl font-bold text-white mt-4">₩ 99,000 ~ 200,000+</h3>
+                    <p class="text-slate-500 text-xs mt-2">"희소성 있는 나만의 부적"</p>
+                </div>
+                <div class="space-y-4 border-t border-slate-700 pt-6">
+                    <div class="flex items-start">
+                        <i class="fas fa-check text-purple-500 mt-1 mr-3"></i>
+                        <div>
+                            <p class="text-sm text-white font-bold">Target</p>
+                            <p class="text-xs text-slate-400">스피리추얼 고관여층, 고소득자</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-gem text-purple-500 mt-1 mr-3"></i>
+                        <div>
+                            <p class="text-sm text-white font-bold">Product</p>
+                            <p class="text-xs text-slate-400">희귀 원석(몰다바이트 등), 1:1 맞춤 제작</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Promotion Tactics -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-slate-800/30 p-4 rounded border border-slate-700/50 text-center text-sm text-slate-400">
+                <strong class="text-white block mb-1">🎁 번들 전략</strong> 목걸이+팔찌 세트 15% 할인
+            </div>
+            <div class="bg-slate-800/30 p-4 rounded border border-slate-700/50 text-center text-sm text-slate-400">
+                <strong class="text-white block mb-1">📅 시즌 프로모션</strong> 해당 월 생일자/별자리 10% OFF
+            </div>
+            <div class="bg-slate-800/30 p-4 rounded border border-slate-700/50 text-center text-sm text-slate-400">
+                <strong class="text-white block mb-1">📝 리뷰 인센티브</strong> 착용샷+후기 시 3~5천원 쿠폰
             </div>
         </div>
     </section>
 
-    <!-- Section 5: Marketing & Strategy -->
-    <section class="bg-slate-800 py-16">
-        <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-white mb-8 text-center">마케팅 및 실행 전략</h2>
-            
-            <div class="space-y-6">
-                <!-- Strategy 1 -->
-                <div class="flex flex-col md:flex-row gap-6 items-center bg-slate-900 p-6 rounded-xl">
-                    <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0 text-2xl text-white">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
+    <!-- 7. Marketing & Operation Strategy (Number Updated & Expanded) -->
+    <section id="marketing" class="max-w-7xl mx-auto px-6 py-16 border-t border-slate-800 bg-gradient-to-br from-slate-900 to-purple-900/10">
+        <h2 class="text-3xl font-bold text-white section-title serif-font">7. 마케팅 및 운영 전략 제안</h2>
+        
+        <!-- 7-1. Positioning -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="inline-block py-1 px-3 rounded text-xs font-bold bg-purple-500/20 text-purple-300 mb-4 border border-purple-500/50">7-1. Core Positioning</span>
+            <h3 class="text-2xl md:text-3xl font-bold text-white leading-relaxed mb-4">
+                "하루 한 번 보는 운세를,<br>
+                <span class="gradient-text">매일 몸에 지니는 의미 있는 주얼리</span>로."
+            </h3>
+            <p class="text-slate-400">
+                콘텐츠(운세)와 커머스(주얼리)를 분리하지 않고,<br>
+                <strong>"콘텐츠 → 진단 → 처방(주얼리 구매)"</strong>의 단일 경험으로 설계하는 것이 핵심.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- 7-2. Channel & Keywords -->
+            <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-blue-500 transition-colors duration-300 group">
+                <div class="flex items-center justify-between mb-6">
+                    <h4 class="text-lg font-bold text-white group-hover:text-blue-400 transition">7-2. 채널 & 키워드</h4>
+                    <i class="fas fa-search text-2xl text-slate-600 group-hover:text-blue-500 transition"></i>
+                </div>
+                <div class="space-y-4 text-sm text-slate-300">
                     <div>
-                        <h3 class="text-xl font-bold text-purple-300 mb-2">콘텐츠 → 진단 → 제품</h3>
-                        <p class="text-slate-400 text-sm">단순 판매가 아닌 경험 설계. "오늘의 운세 + 추천 컬러/원석" 콘텐츠를 인스타/유튜브에 발행하여 자연스럽게 제품 페이지로 유입 유도.</p>
+                        <strong class="text-blue-200 block mb-1">Naver Shopping SEO</strong>
+                        <p class="text-slate-400 text-xs">고가 주얼리는 '소재/특성'이 중요.<br>
+                        키워드: "925실버 별자리 목걸이", "천연 탄생석 팔찌", "수면 도움 원석", "블랙 투르말린"</p>
                     </div>
                 </div>
+            </div>
 
-                <!-- Strategy 2 -->
-                <div class="flex flex-col md:flex-row gap-6 items-center bg-slate-900 p-6 rounded-xl">
-                    <div class="w-16 h-16 bg-teal-600 rounded-full flex items-center justify-center flex-shrink-0 text-2xl text-white">
-                        <i class="fas fa-search"></i>
+            <!-- 7-3. Content Marketing -->
+            <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-pink-500 transition-colors duration-300 group">
+                <div class="flex items-center justify-between mb-6">
+                    <h4 class="text-lg font-bold text-white group-hover:text-pink-400 transition">7-3. 콘텐츠 마케팅</h4>
+                    <i class="fas fa-camera text-2xl text-slate-600 group-hover:text-pink-500 transition"></i>
+                </div>
+                <div class="space-y-4 text-sm text-slate-300">
+                    <div>
+                        <strong class="text-pink-200 block mb-1">운세 앱/SNS 연계</strong>
+                        <p class="text-slate-400 text-xs">"오늘의 운세 + 행운 컬러/원석 추천" 콘텐츠 지속 발행 (인스타/유튜브 쇼츠).</p>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold text-teal-300 mb-2">키워드 선점 (SEO)</h3>
-                        <p class="text-slate-400 text-sm">"925실버 별자리 목걸이", "탄생석 팔찌", "수면 도움 원석" 등 기능성과 소재를 결합한 구체적 키워드로 네이버 쇼핑 검색 점유.</p>
+                        <strong class="text-pink-200 block mb-1">스토리형 상세페이지</strong>
+                        <p class="text-slate-400 text-xs">"사자자리 & 火 오행 - 자신감을 상징하는 시트린" 등 서사 부여.</p>
                     </div>
                 </div>
+            </div>
 
-                <!-- Strategy 3 -->
-                <div class="flex flex-col md:flex-row gap-6 items-center bg-slate-900 p-6 rounded-xl">
-                    <div class="w-16 h-16 bg-pink-600 rounded-full flex items-center justify-center flex-shrink-0 text-2xl text-white">
-                        <i class="fas fa-heart"></i>
+            <!-- 7-4. Data Driven -->
+            <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-amber-500 transition-colors duration-300 group">
+                <div class="flex items-center justify-between mb-6">
+                    <h4 class="text-lg font-bold text-white group-hover:text-amber-400 transition">7-4. 데이터 기획</h4>
+                    <i class="fas fa-database text-2xl text-slate-600 group-hover:text-amber-500 transition"></i>
+                </div>
+                <div class="space-y-4 text-sm text-slate-300">
+                    <div>
+                        <strong class="text-amber-200 block mb-1">고객 데이터 수집</strong>
+                        <p class="text-slate-400 text-xs">주문 시 '생년월일', '주요 고민(연애/재물)' 옵션 선택 유도.</p>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold text-pink-300 mb-2">데이터 기반 추천</h3>
-                        <p class="text-slate-400 text-sm">고객의 생년월일/고민(연애, 커리어) 데이터를 수집하여, 맞춤형 리포트와 함께 제품을 추천하는 '초개인화 서비스'로 확장.</p>
+                        <strong class="text-amber-200 block mb-1">개인화 추천 (CRM)</strong>
+                        <p class="text-slate-400 text-xs">축적된 데이터 기반으로 맞춤형 리포트 제공 및 시즌별 리타겟팅.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-12 px-6 bg-slate-900 border-t border-slate-800 text-slate-500 text-sm">
-        <div class="max-w-6xl mx-auto">
-            <h3 class="font-bold text-slate-300 mb-6 text-center text-lg">자료 출처 (Annotated References)</h3>
+    <!-- Footer / References -->
+    <footer class="py-16 px-6 bg-black border-t border-slate-900 text-slate-500 text-sm">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="font-bold text-slate-300 mb-8 text-center text-lg uppercase tracking-widest">자료 출처 (References)</h3>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs text-left">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-xs">
                 
-                <!-- Column 1 -->
-                <div class="space-y-6">
-                    <div>
-                        <h4 class="font-bold text-purple-400 mb-2">📌 한국 운세 시장 및 미디어 리서치</h4>
-                        <ul class="space-y-1 truncate">
-                            <li><a href="https://magazine.hankyung.com/business/article/202405302827b" target="_blank" class="hover:text-white transition">magazine.hankyung.com/business/article/202405302827b</a></li>
-                            <li><a href="https://www.sentv.co.kr/news/view/700733" target="_blank" class="hover:text-white transition">sentv.co.kr/news/view/700733</a></li>
-                            <li><a href="https://www.ytn.co.kr/_ln/0103_202001130923310040" target="_blank" class="hover:text-white transition">ytn.co.kr/_ln/0103_202001130923310040</a></li>
-                            <li><a href="https://www.fnnews.com/news/202110261001352394" target="_blank" class="hover:text-white transition">fnnews.com/news/202110261001352394</a></li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h4 class="font-bold text-purple-400 mb-2">📌 글로벌 Astrology / Spiritual / Zodiac Jewelry 시장</h4>
-                        <ul class="space-y-1 truncate">
-                            <li><a href="https://marketresearch.biz/report/zodiac-jewelry-market/" target="_blank" class="hover:text-white transition">marketresearch.biz/report/zodiac-jewelry-market/</a></li>
-                            <li><a href="https://www.thebusinessresearchcompany.com/report/spiritual-jewelry-market" target="_blank" class="hover:text-white transition">thebusinessresearchcompany.com/report/spiritual-jewelry-market</a></li>
-                            <li><a href="https://www.businessresearchinsights.com/market-reports/astrology-app-market-108020" target="_blank" class="hover:text-white transition">businessresearchinsights.com/market-reports/astrology-app-market-108020</a></li>
-                            <li><a href="https://www.marketwatch.com/press-release/global-spiritual-jewelry-market-size-2024-2031" target="_blank" class="hover:text-white transition">marketwatch.com/press-release/global-spiritual-jewelry-market-size-2024-2031</a></li>
-                        </ul>
-                    </div>
+                <!-- Ref Col 1 -->
+                <div>
+                    <h4 class="font-bold text-white mb-3 border-b border-slate-800 pb-2">🇰🇷 한국 시장 리서치</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://magazine.hankyung.com/business/article/202405302827b" target="_blank" class="hover:text-amber-400 transition block truncate">한국경제매거진: 운세 시장 규모</a></li>
+                        <li><a href="https://www.sentv.co.kr/news/view/700733" target="_blank" class="hover:text-amber-400 transition block truncate">서울경제TV: 점술 산업 성장</a></li>
+                        <li><a href="https://www.ytn.co.kr/_ln/0103_202001130923310040" target="_blank" class="hover:text-amber-400 transition block truncate">YTN 팩트체크: 무속인 규모</a></li>
+                    </ul>
                 </div>
 
-                <!-- Column 2 -->
-                <div class="space-y-6">
-                    <div>
-                        <h4 class="font-bold text-teal-400 mb-2">📌 원석 / 젬스톤 글로벌 시장 & MZ 트렌드</h4>
-                        <ul class="space-y-1 truncate">
-                            <li><a href="https://www.cognitivemarketresearch.com/gemstones-market" target="_blank" class="hover:text-white transition">cognitivemarketresearch.com/gemstones-market</a></li>
-                            <li><a href="https://www.green-ing.co.kr/news/articleView.html?idxno=2744" target="_blank" class="hover:text-white transition">green-ing.co.kr/news/articleView.html?idxno=2744</a></li>
-                            <li><a href="https://news.mt.co.kr/mtview.php?no=2023112809354368959" target="_blank" class="hover:text-white transition">news.mt.co.kr/mtview.php?no=2023112809354368959</a></li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h4 class="font-bold text-amber-400 mb-2">📌 상품/가격 벤치마킹 & 레퍼런스</h4>
-                        <ul class="space-y-1 truncate">
-                            <li><a href="https://crystalfantasy.co.kr" target="_blank" class="hover:text-white transition">crystalfantasy.co.kr</a></li>
-                            <li><a href="https://crystalkorea.co.kr" target="_blank" class="hover:text-white transition">crystalkorea.co.kr</a></li>
-                            <li><a href="https://smartstore.naver.com" target="_blank" class="hover:text-white transition">smartstore.naver.com</a></li>
-                            <li><a href="https://selenichast.com/products/zodiac-enamel-necklace" target="_blank" class="hover:text-white transition">selenichast.com/products/zodiac-enamel-necklace</a></li>
-                        </ul>
-                    </div>
+                <!-- Ref Col 2 -->
+                <div>
+                    <h4 class="font-bold text-white mb-3 border-b border-slate-800 pb-2">🌍 글로벌 시장</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://marketresearch.biz/report/zodiac-jewelry-market/" target="_blank" class="hover:text-amber-400 transition block truncate">Global Zodiac Jewelry Market</a></li>
+                        <li><a href="https://www.thebusinessresearchcompany.com/report/spiritual-jewelry-market" target="_blank" class="hover:text-amber-400 transition block truncate">Spiritual Jewelry Report</a></li>
+                        <li><a href="https://www.businessresearchinsights.com/market-reports/astrology-app-market-108020" target="_blank" class="hover:text-amber-400 transition block truncate">Astrology App Market Stats</a></li>
+                    </ul>
                 </div>
 
+                <!-- Ref Col 3 -->
+                <div>
+                    <h4 class="font-bold text-white mb-3 border-b border-slate-800 pb-2">💎 트렌드 & 벤치마킹</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://news.mt.co.kr/mtview.php?no=2023112809354368959" target="_blank" class="hover:text-amber-400 transition block truncate">머니투데이: MZ 주얼리 트렌드</a></li>
+                        <li><a href="https://crystalfantasy.co.kr" target="_blank" class="hover:text-amber-400 transition block truncate">크리스탈 환타지 (국내 1위)</a></li>
+                        <li><a href="https://crystalkorea.co.kr" target="_blank" class="hover:text-amber-400 transition block truncate">크리스탈코리아</a></li>
+                    </ul>
+                </div>
+
+                <!-- Ref Col 4 -->
+                <div>
+                    <h4 class="font-bold text-white mb-3 border-b border-slate-800 pb-2">🛒 커머스/해외</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://smartstore.naver.com" target="_blank" class="hover:text-amber-400 transition block truncate">네이버 스마트스토어 시장조사</a></li>
+                        <li><a href="https://selenichast.com/products/zodiac-enamel-necklace" target="_blank" class="hover:text-amber-400 transition block truncate">Selenichast (해외 벤치마킹)</a></li>
+                        <li><a href="https://www.cognitivemarketresearch.com/gemstones-market" target="_blank" class="hover:text-amber-400 transition block truncate">Global Gemstones Market</a></li>
+                    </ul>
+                </div>
             </div>
             
-            <p class="text-xs text-center border-t border-slate-800 pt-8 mt-8 opacity-50">Designed for Business Insight</p>
+            <div class="mt-12 text-center text-slate-700 text-xs">
+                <p>Designed for Strategic Planning | 2025 Vision Report</p>
+            </div>
         </div>
     </footer>
 
